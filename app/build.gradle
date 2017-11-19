@@ -24,14 +24,24 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
     implementation "android.arch.lifecycle:common-java8:1.0.0"
     implementation "android.arch.lifecycle:extensions:1.0.0"
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation "com.android.support:design:$supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-//    implementation "com.google.firebase:firebase-core:$playServicesVersion"
+
+    // Google Services
+    implementation "com.google.firebase:firebase-auth:$playServicesVersion"
+    implementation "com.google.firebase:firebase-firestore:$playServicesVersion"
+    implementation "com.google.firebase:firebase-messaging:$playServicesVersion"
+    implementation "com.google.firebase:firebase-appindexing:$playServicesVersion"
+    implementation "com.google.firebase:firebase-config:$playServicesVersion"
+    implementation "com.google.firebase:firebase-invites:$playServicesVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'
