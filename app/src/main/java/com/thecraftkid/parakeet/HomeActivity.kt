@@ -41,7 +41,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     private fun switchFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, fragment)
+                .replace(R.id.fragment_container, fragment)
                 .commit()
     }
 
