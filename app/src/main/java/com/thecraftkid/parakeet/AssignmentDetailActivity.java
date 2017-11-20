@@ -39,7 +39,7 @@ public class AssignmentDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_assignment_detail, menu);
+        getMenuInflater().inflate(R.menu.activity_assignment_detail, menu);
         return true;
     }
 

@@ -11,5 +11,7 @@
     <!-- Menu strings -->
     <string name="action_settings">Settings</string>
     <string name="action_edit">Edit</string>
+    <string name="action_auth_sign_in">Sign in</string>
+    <string name="action_auth_sign_out">Sign out</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
 import com.thecraftkid.parakeet.ui.AssignmentListFragment
 import com.thecraftkid.parakeet.ui.AssistantDisplayFragment
@@ -37,6 +38,21 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             else -> throw IllegalStateException("Unknown selection")
         })
         return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_home, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_settings -> {
+                // TODO: Launch settings
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun switchFragment(fragment: Fragment) {
