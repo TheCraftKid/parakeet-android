@@ -1,31 +1,51 @@
 package com.thecraftkid.parakeet
 
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
+import com.thecraftkid.parakeet.ui.AssignmentListFragment
+import com.thecraftkid.parakeet.ui.AssistantDisplayFragment
+import com.thecraftkid.parakeet.ui.DashboardFragment
+import com.thecraftkid.parakeet.ui.GradesListFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+/**
+ * The main entry point for the app,showing a [AssistantDisplayFragment], a
+ * [AssignmentListFragment], a [DashboardFragment], and a [GradesListFragment]
+ *
+ * @version 1.0.0
+ * @since v1.0.0 (11/19/17)
+ */
+class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        navigation.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.navigation_home -> {
-                    message.setText(R.string.title_home)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigation_dashboard -> {
-                    message.setText(R.string.title_dashboard)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigation_notifications -> {
-                    message.setText(R.string.title_notifications)
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
+        bottom_navigation.setOnNavigationItemSelectedListener(this)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        switchFragment(when (item.itemId) {
+            R.id.navigation_assistant -> AssistantDisplayFragment.newInstance(getUserId())
+            R.id.navigation_recents -> AssignmentListFragment.newInstance()
+            R.id.navigation_dashboard -> DashboardFragment.newInstance()
+            R.id.navigation_grades -> GradesListFragment.newInstance(getUserId())
+            else -> throw IllegalStateException("Unknown selection")
+        })
+        return true
+    }
+
+    private fun switchFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit()
+    }
+
+    private fun getUserId(): String {
+        // TODO: Move auth stuff into separate class
+        return ""
     }
 }
