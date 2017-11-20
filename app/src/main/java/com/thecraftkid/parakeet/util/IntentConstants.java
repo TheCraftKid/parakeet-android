@@ -13,6 +13,8 @@ public final class IntentConstants {
 
     public static final String EXTRA_ASSIGNMENT_ID = "com.thecraftkid.parakeet.extra.ASSIGNMENT_ID";
 
+    public static final String EXTRA_USER_ID = "com.thecraftkid.parakeet.extra.USER_ID";
+
     private IntentConstants() {
         // No instances
     }
