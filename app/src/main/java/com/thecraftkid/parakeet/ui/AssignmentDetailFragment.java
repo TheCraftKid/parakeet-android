@@ -2,9 +2,14 @@ package com.thecraftkid.parakeet.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.thecraftkid.parakeet.R;
 import com.thecraftkid.parakeet.viewmodel.AssignmentViewModel;
 
 import java.util.Objects;
@@ -51,5 +56,12 @@ public class AssignmentDetailFragment extends Fragment {
         viewModel.getAssignment(classId, assignmentId).observe(this, assignment -> {
             // TODO: 11/19/2017 Update UI
         });
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_assignment_detail, container, false);
     }
 }
