@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:maxWidth="368dp"
     tools:context="com.thecraftkid.parakeet.AssignmentCreationActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -29,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:alpha="0.87"
                 android:background="@null"
-                android:hint="Assignment name"
+                android:hint="@string/input_hint_assignment_name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColorHint="@android:color/white" />
 

@@ -15,5 +15,6 @@
     <string name="action_auth_sign_in">Sign in</string>
     <string name="action_auth_sign_out">Sign out</string>
     <string name="action_finish">Finish</string>
+    <string name="input_hint_assignment_name">Assignment name</string>
 
 </resources>
