@@ -36,8 +36,8 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             tab_layout.visibility = if (isSelected!!) View.VISIBLE else View.GONE
         })
         bottom_navigation.setOnNavigationItemSelectedListener(this)
-        bottom_navigation.selectedItemId = R.id.navigation_dashboard
         tab_layout.setupWithViewPager(ViewPager(this))
+        fab.setOnClickListener { AssignmentCreationActivity.start(this) }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
