@@ -1,8 +1,5 @@
 package com.thecraftkid.parakeet.ui;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thecraftkid.parakeet.R;
+import com.thecraftkid.parakeet.ui.viewmodel.AssignmentCreationViewModel;
 
 /**
  * A {@link Fragment} that provides options for creating a
@@ -43,42 +41,4 @@ public class AssignmentCreationFragment extends Fragment {
                 .get(AssignmentCreationViewModel.class);
     }
 
-    private static class AssignmentCreationViewModel extends ViewModel {
-
-        private LiveData<String> name;
-
-        private LiveData<String> notes;
-
-        private LiveData<Long> dueDate;
-
-        private LiveData<Integer> totalPoints;
-
-        public LiveData<String> getName() {
-            if (name == null) {
-                name = new MutableLiveData<>();
-            }
-            return name;
-        }
-
-        public LiveData<String> getNotes() {
-            if (notes == null) {
-                notes = new MutableLiveData<>();
-            }
-            return notes;
-        }
-
-        public LiveData<Long> getDueDate() {
-            if (dueDate == null) {
-                dueDate = new MutableLiveData<>();
-            }
-            return dueDate;
-        }
-
-        public LiveData<Integer> getTotalPoints() {
-            if (totalPoints == null) {
-                totalPoints = new MutableLiveData<>();
-            }
-            return totalPoints;
-        }
-    }
 }
