@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.thecraftkid.parakeet.ui.AssignmentCreationFragment"
+    tools:showIn="@layout/activity_assignment_creation">
+
+    <ImageView
+        android:id="@+id/group_members_icon"
+        style="@style/Parakeet.Widget.IconLabel"
+        android:src="@drawable/ic_group_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Group members (WIP)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/group_members_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/group_members_icon"
+        app:layout_constraintTop_toTopOf="@+id/group_members_icon" />
+
+    <ImageView
+        android:id="@+id/due_date_icon"
+        style="@style/Parakeet.Widget.IconLabel"
+        android:src="@drawable/ic_date_range_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_members_icon" />
+
+    <TextView
+        android:id="@+id/assignment_due_date_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Due on November 21, 2017"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/due_date_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/due_date_icon"
+        app:layout_constraintTop_toTopOf="@+id/due_date_icon" />
+
+    <ImageView
+        android:id="@+id/assignment_notes_icon"
+        style="@style/Parakeet.Widget.IconLabel"
+        android:src="@drawable/ic_assignment_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/due_date_icon" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/assignment_notes_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/assignment_notes_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/assignment_notes_icon"
+        app:layout_constraintTop_toTopOf="@id/assignment_notes_icon">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quick notes for assignment" />
+
+    </android.support.design.widget.TextInputLayout>
+
+</android.support.constraint.ConstraintLayout>
