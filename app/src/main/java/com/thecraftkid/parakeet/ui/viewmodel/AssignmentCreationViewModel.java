@@ -13,6 +13,8 @@ import android.arch.lifecycle.ViewModel;
 @SuppressWarnings("JavaDoc")
 public class AssignmentCreationViewModel extends ViewModel {
 
+    private MutableLiveData<String> classId;
+
     private MutableLiveData<String> name;
 
     private MutableLiveData<String> notes;
@@ -20,6 +22,13 @@ public class AssignmentCreationViewModel extends ViewModel {
     private MutableLiveData<Long> dueDate;
 
     private MutableLiveData<Integer> totalPoints;
+
+    public MutableLiveData<String> getClassId() {
+        if (classId == null) {
+            classId = new MutableLiveData<>();
+        }
+        return classId;
+    }
 
     public MutableLiveData<String> getName() {
         if (name == null) {
