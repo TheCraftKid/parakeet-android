@@ -11,12 +11,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/Parakeet.Widget.ColoredMiniHeading"
             android:layout_margin="16dp"
-            android:text="Upcoming events"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/colorAccent" />
+            android:text="Upcoming events" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_upcoming_events"
