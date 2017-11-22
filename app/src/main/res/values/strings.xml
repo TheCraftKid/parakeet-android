@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Parakeet</string>
     <string name="title_activity_assignment_detail">Assignment Details</string>
+    <string name="title_activity_assignment_creation">Create an assignment</string>
 
     <!-- Navigation strings -->
     <string name="title_assistant">Assistant</string>
@@ -13,5 +14,6 @@
     <string name="action_edit">Edit</string>
     <string name="action_auth_sign_in">Sign in</string>
     <string name="action_auth_sign_out">Sign out</string>
+    <string name="action_finish">Finish</string>
 
 </resources>
