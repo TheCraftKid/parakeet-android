@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll"
+            app:layout_scrollFlags="scroll|snap"
             app:popupTheme="@style/Parakeet.PopupOverlay" />
 
         <android.support.design.widget.TabLayout
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:layout_scrollFlags="snap" />
+            app:tabMode="scrollable"/>
 
     </android.support.design.widget.AppBarLayout>
 
