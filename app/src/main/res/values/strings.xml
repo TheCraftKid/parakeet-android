@@ -15,6 +15,13 @@
     <string name="action_auth_sign_in">Sign in</string>
     <string name="action_auth_sign_out">Sign out</string>
     <string name="action_finish">Finish</string>
+
+    <!-- Input hints-->
     <string name="input_hint_assignment_name">Assignment name</string>
+    <string name="input_hint_assignment_group_members">Group members</string>
+    <string name="input_hint_assignment_points">Points available</string>
+    <string name="input_hint_assignment_notes">Additional notes</string>
+
+    <string name="error_creating_assignment">Couldn\'t create assignment. Try again later.</string>
 
 </resources>

@@ -47,6 +47,7 @@ public class AssignmentCreationViewModel extends ViewModel {
     public MutableLiveData<Long> getDueDate() {
         if (dueDate == null) {
             dueDate = new MutableLiveData<>();
+            dueDate.setValue(0L);
         }
         return dueDate;
     }

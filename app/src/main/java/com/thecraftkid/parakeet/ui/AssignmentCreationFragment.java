@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.thecraftkid.parakeet.R;
 import com.thecraftkid.parakeet.ui.viewmodel.AssignmentCreationViewModel;
+
+import org.joda.time.DateTime;
 
 import java.util.Calendar;
 
@@ -27,14 +29,16 @@ import java.util.Calendar;
  * @version 1.0.0
  * @since v1.0.0 (11/22/17)
  */
-public class AssignmentCreationFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
+public class AssignmentCreationFragment extends Fragment {
 
 
     private TextView mDueDateView;
 
     private TextView mGroupMembersView;
 
-    private TextInputLayout mNotesView;
+    private EditText mPointsView;
+
+    private EditText mNotesView;
 
     /**
      * Required public empty constructor
@@ -53,6 +57,7 @@ public class AssignmentCreationFragment extends Fragment implements DatePickerDi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mDueDateView = view.findViewById(R.id.assignment_due_date_label);
         mGroupMembersView = view.findViewById(R.id.group_members_content);
+        mPointsView = view.findViewById(R.id.assignment_points_content);
         mNotesView = view.findViewById(R.id.assignment_notes_content);
 
         mDueDateView.setOnClickListener(v -> {
@@ -61,23 +66,26 @@ public class AssignmentCreationFragment extends Fragment implements DatePickerDi
             int month = calendar.get(Calendar.MONTH);
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             //noinspection ConstantConditions Context won't be null.
-            new DatePickerDialog(getContext(), this, year, month, day).show();
+            new DatePickerDialog(getContext(), (DatePicker picker, int y, int m, int d) -> {
+                long dueDate = new DateTime(y, m, d, 0, 0).getMillis();
+                getViewModel().getDueDate().setValue(dueDate);
+            }, year, month, day).show();
         });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        AssignmentCreationViewModel viewModel = ViewModelProviders.of(this)
-                .get(AssignmentCreationViewModel.class);
-        viewModel.getDueDate().observe(this, dueDate -> {
+        getViewModel().getDueDate().observe(this, dueDate -> {
+            DateTime dateTime = new DateTime(dueDate);
+            mDueDateView.setText(dateTime.toString()); // TODO: 11/23/2017 Localize date string
         });
 
-        viewModel.getNotes().observe(this, notes -> {
-            getNotesEditText().setText(notes);
+        getViewModel().getNotes().observe(this, notes -> {
+            mNotesView.setText(notes);
         });
 
-        getNotesEditText().addTextChangedListener(new TextWatcher() {
+        mNotesView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // no-op
@@ -85,7 +93,24 @@ public class AssignmentCreationFragment extends Fragment implements DatePickerDi
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                viewModel.getNotes().setValue(String.valueOf(charSequence));
+//                getViewModel().getNotes().setValue(String.valueOf(charSequence));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // no-op
+            }
+        });
+
+        mPointsView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // no-op
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                getViewModel().getTotalPoints().setValue(Integer.valueOf(String.valueOf(charSequence)));
             }
 
             @Override
@@ -96,13 +121,7 @@ public class AssignmentCreationFragment extends Fragment implements DatePickerDi
     }
 
     @NonNull
-    private TextView getNotesEditText() {
-        //noinspection ConstantConditions Since the layout includes an EditText
-        return mNotesView.getEditText();
-    }
-
-    @Override
-    public void onDateSet(DatePicker picker, int year, int month, int day) {
-
+    private AssignmentCreationViewModel getViewModel() {
+        return ViewModelProviders.of(this).get(AssignmentCreationViewModel.class);
     }
 }
