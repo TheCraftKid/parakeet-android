@@ -15,6 +15,8 @@ public final class IntentConstants {
 
     public static final String EXTRA_USER_ID = "com.thecraftkid.parakeet.extra.USER_ID";
 
+    public static final int RC_SIGN_IN = 1000;
+
     private IntentConstants() {
         // No instances
     }

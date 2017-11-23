@@ -1,18 +1,23 @@
 package com.thecraftkid.parakeet
 
 import android.arch.lifecycle.*
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import com.thecraftkid.parakeet.auth.UserManager
 import com.thecraftkid.parakeet.ui.AssignmentListFragment
 import com.thecraftkid.parakeet.ui.AssistantDisplayFragment
 import com.thecraftkid.parakeet.ui.DashboardFragment
 import com.thecraftkid.parakeet.ui.GradesListFragment
+import com.thecraftkid.parakeet.util.IntentConstants
 import kotlinx.android.synthetic.main.activity_home.*
 
 /**
@@ -24,6 +29,8 @@ import kotlinx.android.synthetic.main.activity_home.*
  */
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
+    private val TAG = HomeActivity::class.java.simpleName;
+
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +38,9 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
 
+        if (savedInstanceState == null) {
+            bottom_navigation.selectedItemId = R.id.navigation_dashboard
+        }
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         viewModel.getSelectionState().observe(this, Observer<Boolean> { isSelected ->
             tab_layout.visibility = if (isSelected!!) View.VISIBLE else View.GONE
@@ -61,13 +71,55 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return true
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        if (UserManager.getInstance().isSignedIn) {
+            val item = menu!!.findItem(R.id.action_auth);
+            item.title = getString(R.string.action_auth_sign_out)
+            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
+        } else {
+            val item = menu!!.findItem(R.id.action_auth);
+            item.title = getString(R.string.action_auth_sign_in)
+            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+        }
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_auth -> {
+                val manager = UserManager.getInstance();
+                if (manager.isSignedIn) {
+                    manager.signOut(this)
+                            .addOnSuccessListener(this, { recreate() })
+                } else {
+                    Log.i(TAG, "Starting sign in flow")
+                    manager.signIn(this)
+                }
+                return true
+            }
             R.id.action_settings -> {
                 // TODO: Launch settings
                 return true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            IntentConstants.RC_SIGN_IN -> {
+                when (resultCode) {
+                    RESULT_OK -> {
+                        Log.i(TAG, "Sign in successful")
+                        Toast.makeText(this, "You are now signed in", Toast.LENGTH_SHORT).show()
+                        recreate()
+                    }
+                    RESULT_CANCELED -> {
+                        Log.i(TAG, "Sign in canceled")
+                    }
+                }
+            }
         }
     }
 
