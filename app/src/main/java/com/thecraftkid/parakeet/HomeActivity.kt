@@ -44,6 +44,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         viewModel.getSelectionState().observe(this, Observer<Boolean> { isSelected ->
             tab_layout.visibility = if (isSelected!!) View.VISIBLE else View.GONE
+            invalidateOptionsMenu()
         })
         bottom_navigation.setOnNavigationItemSelectedListener(this)
         tab_layout.setupWithViewPager(ViewPager(this))
@@ -72,14 +73,20 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        val authItem = menu!!.findItem(R.id.action_auth)
+        val addClassItem = menu.findItem(R.id.action_add_class)
         if (UserManager.getInstance().isSignedIn) {
-            val item = menu!!.findItem(R.id.action_auth);
-            item.title = getString(R.string.action_auth_sign_out)
-            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
+            authItem.title = getString(R.string.action_auth_sign_out)
+            authItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         } else {
-            val item = menu!!.findItem(R.id.action_auth);
-            item.title = getString(R.string.action_auth_sign_in)
-            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+            authItem.title = getString(R.string.action_auth_sign_in)
+            authItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+        }
+
+        if (viewModel.getSelectionState().value!!) {
+            addClassItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        } else {
+            addClassItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         }
         return true
     }
