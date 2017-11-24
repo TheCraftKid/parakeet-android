@@ -23,6 +23,13 @@
     <string name="input_hint_assignment_points">Points available</string>
     <string name="input_hint_assignment_notes">Additional notes</string>
 
+    <!-- General errors -->
     <string name="error_creating_assignment">Couldn\'t create assignment. Try again later.</string>
 
+    <!-- Auth errors -->
+    <string name="error_no_network">Connect to the internet and try again.</string>
+    <string name="error_unknown">Couldn\'t do that. Try again in a bit.</string>
+    <string name="error_only_one_account">Only one Parakeet account may be signed in at a time.</string>
+
+    <string name="authenticator_account_type" translatable="false">com.thecraftkid.parakeet</string>
 </resources>
