@@ -35,7 +35,7 @@ public class Database {
     }
 
     @NonNull
-    private DocumentReference getClassReference(String classId) {
+    private DocumentReference getClassReference(@NonNull String classId) {
         return mDatabase.collection(PATH_CLASSES).document(classId);
     }
 
