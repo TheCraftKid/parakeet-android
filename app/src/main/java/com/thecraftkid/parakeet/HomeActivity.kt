@@ -31,8 +31,6 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     private val TAG = HomeActivity::class.java.simpleName;
 
-    private lateinit var viewModel: HomeViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -41,8 +39,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         if (savedInstanceState == null) {
             bottom_navigation.selectedItemId = R.id.navigation_dashboard
         }
-        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        viewModel.getSelectionState().observe(this, Observer<Boolean> { isSelected ->
+        getViewModel().getSelectionState().observe(this, Observer<Boolean> { isSelected ->
             tab_layout.visibility = if (isSelected!!) View.VISIBLE else View.GONE
             invalidateOptionsMenu()
         })
@@ -53,13 +50,13 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         if (item.itemId != R.id.navigation_grades)
-            viewModel.setShowTabs(false)
+            getViewModel().setShowTabs(false)
         switchFragment(when (item.itemId) {
             R.id.navigation_assistant -> AssistantDisplayFragment.newInstance(getUserId())
             R.id.navigation_recents -> AssignmentListFragment.newInstance()
             R.id.navigation_dashboard -> DashboardFragment.newInstance()
             R.id.navigation_grades -> {
-                viewModel.setShowTabs(true)
+                getViewModel().setShowTabs(true)
                 GradesListFragment.newInstance(getUserId())
             }
             else -> throw IllegalStateException("Unknown selection")
@@ -74,19 +71,12 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         val authItem = menu!!.findItem(R.id.action_auth)
-        val addClassItem = menu.findItem(R.id.action_add_class)
         if (UserManager.getInstance().isSignedIn) {
             authItem.title = getString(R.string.action_auth_sign_out)
             authItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         } else {
             authItem.title = getString(R.string.action_auth_sign_in)
             authItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
-        }
-
-        if (viewModel.getSelectionState().value!!) {
-            addClassItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        } else {
-            addClassItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         }
         return true
     }
@@ -102,6 +92,10 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     Log.i(TAG, "Starting sign in flow")
                     manager.signIn(this)
                 }
+                return true
+            }
+            R.id.action_add_class -> {
+                // TODO: Add CreateClassroomActivity
                 return true
             }
             R.id.action_settings -> {
@@ -129,6 +123,9 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
         }
     }
+
+    private fun getViewModel(): HomeViewModel =
+            ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
     private fun switchFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
