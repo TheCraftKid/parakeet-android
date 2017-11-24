@@ -133,10 +133,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 .commit()
     }
 
-    private fun getUserId(): String {
-        // TODO: Move auth stuff into separate class
-        return ""
-    }
+    private fun getUserId(): String? = UserManager.getInstance().userId
 
     private class HomeViewModel : ViewModel() {
 
