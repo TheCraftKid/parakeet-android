@@ -1,7 +1,6 @@
 # Parakeet
-## About
 *A little friend that keeps track of your school work*
-
+## About
 Parakeet is an Android app that came about after having issues with standard
 reminder apps and calendars. It consolidates what a calendar and to-do list app
 does while outperforming them in areas that wouldn't make sense in either.
