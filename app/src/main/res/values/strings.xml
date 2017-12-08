@@ -2,6 +2,7 @@
     <string name="app_name">Parakeet</string>
     <string name="title_activity_assignment_detail">Assignment Details</string>
     <string name="title_activity_assignment_creation">Create an assignment</string>
+    <string name="title_activity_create_class">Create a class</string>
 
     <!-- Navigation strings -->
     <string name="title_assistant">Assistant</string>

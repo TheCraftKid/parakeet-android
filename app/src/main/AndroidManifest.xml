@@ -46,6 +46,12 @@
 
         <activity android:name=".auth.authenticator.AuthenticatorActivity" />
 
+        <activity
+            android:name=".ClassCreationActivity"
+            android:label="@string/title_activity_create_class"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Parakeet.NoActionBar" />
+
     </application>
 
 </manifest>
