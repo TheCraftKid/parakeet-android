@@ -27,10 +27,9 @@ import java.util.Calendar;
  * {@link com.thecraftkid.parakeet.model.Assignment}.
  *
  * @version 1.0.0
- * @since v1.0.0 (11/22/17)
+ * @since 1.0.0
  */
 public class AssignmentCreationFragment extends Fragment {
-
 
     private TextView mDueDateView;
 
@@ -67,7 +66,7 @@ public class AssignmentCreationFragment extends Fragment {
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             //noinspection ConstantConditions Context won't be null.
             new DatePickerDialog(getContext(), (DatePicker picker, int y, int m, int d) -> {
-                long dueDate = new DateTime(y, m, d, 0, 0).getMillis();
+                long dueDate = new DateTime(y, m + 1, d, 0, 0).getMillis();
                 getViewModel().getDueDate().setValue(dueDate);
             }, year, month, day).show();
         });
