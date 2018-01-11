@@ -18,7 +18,7 @@ import static com.thecraftkid.parakeet.util.IntentConstants.EXTRA_USER_ID;
  * useful manner.
  *
  * @version 1.0.0
- * @since v1.0.0 (11/20/2017)
+ * @since 1.0.0
  */
 public class AssistantDisplayFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class AssistantDisplayFragment extends Fragment {
 
     }
 
-    public static AssistantDisplayFragment newInstance(String userId) {
+    public static AssistantDisplayFragment newInstance(@Nullable String userId) {
         Bundle args = new Bundle();
         args.putString(EXTRA_USER_ID, userId);
         AssistantDisplayFragment fragment = new AssistantDisplayFragment();
