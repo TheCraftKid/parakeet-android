@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.thecraftkid.parakeet.util.IntentConstants
 
+/**
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 class ClassCreationActivity : AppCompatActivity() {
 
     companion object {
         @JvmStatic
         fun start(context: Context, userId: String?) {
-            val intent = Intent()
+            val intent = Intent(context, ClassCreationActivity::class.java)
             intent.putExtra(IntentConstants.EXTRA_USER_ID, userId)
             context.startActivity(intent)
         }
@@ -19,7 +23,7 @@ class ClassCreationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ClassCreationFragment.newInstance(this)
+        ClassCreationFragment.newInstance()
                 .show(supportFragmentManager, ClassCreationFragment.TAG)
     }
 

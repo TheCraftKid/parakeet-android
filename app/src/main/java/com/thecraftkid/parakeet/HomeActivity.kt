@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_home.*
  * [AssignmentListFragment], a [DashboardFragment], and a [GradesListFragment]
  *
  * @version 1.0.0
- * @since v1.0.0 (11/19/17)
+ * @since 1.0.0
  */
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -95,7 +95,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.action_add_class -> {
-                // TODO: Add CreateClassroomActivity
+                ClassCreationActivity.start(this, getUserId())
                 return true
             }
             R.id.action_settings -> {

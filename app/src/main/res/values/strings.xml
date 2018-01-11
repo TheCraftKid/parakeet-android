@@ -33,4 +33,5 @@
     <string name="error_only_one_account">Only one Parakeet account may be signed in at a time.</string>
 
     <string name="authenticator_account_type" translatable="false">com.thecraftkid.parakeet</string>
+    <string name="title_add_classroom">Add a class</string>
 </resources>
