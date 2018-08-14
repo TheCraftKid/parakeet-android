@@ -49,13 +49,13 @@ public final class UserManager {
      */
     public void signIn(FragmentActivity activity) {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
-                new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build());
+                new AuthUI.IdpConfig.GoogleBuilder().build(),
+                new AuthUI.IdpConfig.EmailBuilder().setRequireName(true)
+                        .build());
         Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setLogo(R.mipmap.ic_launcher)
                 .setIsSmartLockEnabled(!BuildConfig.DEBUG)
-                .setAllowNewEmailAccounts(true)
                 // TODO: 11/23/2017 Set privacy policy URL
                 .build();
         activity.startActivityForResult(intent, IntentConstants.RC_SIGN_IN);

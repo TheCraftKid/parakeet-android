@@ -34,4 +34,8 @@
 
     <string name="authenticator_account_type" translatable="false">com.thecraftkid.parakeet</string>
     <string name="title_add_classroom">Add a class</string>
+
+    <string name="shortcut_create_assignment_disabled">"Can't create assignment"</string>
+    <string name="shortcut_create_assignment_short">New assignment</string>
+    <string name="shortcut_create_assignment_long">Create new assignment</string>
 </resources>

@@ -2,8 +2,8 @@
 <shorctuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/shortcut_create_assignment"
-        android:shorcutId="create_class"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:shortcutId="create_class"
         android:shortcutDisabledMessage="@string/shortcut_create_assignment_disabled"
         android:shortcutLongLabel="@string/shortcut_create_assignment_long"
         android:shortcutShortLabel="@string/shortcut_create_assignment_short">

@@ -64,14 +64,15 @@ public class AuthenticatorActivity extends AppCompatActivity {
                         }
                         mAccountAuthenticatorResponse = null;
                     }
+                } else if (response != null && response.getError() != null) {
+                    if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
+                        showSnackbar(R.string.error_no_network);
+                    }
+                    if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+                        showSnackbar(R.string.error_unknown);
+                    }
+                    finish();
                 }
-                if (response.getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    showSnackbar(R.string.error_no_network);
-                }
-                if (response.getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
-                    showSnackbar(R.string.error_unknown);
-                }
-                finish();
         }
     }
 
