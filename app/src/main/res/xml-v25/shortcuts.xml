@@ -10,7 +10,7 @@
 
         <intent
             android:action="com.thecraftkid.parakeet.action.CREATE_ASSIGNMENT"
-            android:targetClass="com.thecraftkid.parakeet.AssignmentCreationActivity"
+            android:targetClass="co.cubeflow.parakeet.AssignmentCreationActivity"
             android:targetPackage="com.thecraftkid.parakeet" />
 
     </shortcut>

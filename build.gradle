@@ -1,5 +1,10 @@
 buildscript {
-    ext.kotlin_version = '1.2.60'
+    ext {
+        kotlinVersion = '1.2.60'
+        compileSdkVersion = 28
+        minSdkVersion = 21
+        targetSdkVersion = compileSdkVersion
+    }
     repositories {
         google()
         jcenter()
@@ -7,8 +12,12 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0-alpha05'
         classpath 'com.google.gms:google-services:4.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
+}
+
+plugins {
+    id "me.tadej.versioning" version "0.1.1"
 }
 
 allprojects {

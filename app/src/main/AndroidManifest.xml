@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thecraftkid.parakeet">
+    package="co.cubeflow.parakeet">
 
     <uses-permission
         android:name="android.permission.AUTHENTICATE_ACCOUNTS"
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Parakeet">
         <activity
-            android:name=".HomeActivity"
+            android:name="co.cubeflow.parakeet.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/Parakeet.NoActionBar">
             <intent-filter>
@@ -24,17 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AssignmentDetailActivity"
+            android:name="co.cubeflow.parakeet.AssignmentDetailActivity"
             android:label="@string/title_activity_assignment_detail"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName="co.cubeflow.parakeet.HomeActivity"
             android:theme="@style/Parakeet.NoActionBar" />
         <activity
-            android:name=".AssignmentCreationActivity"
+            android:name="co.cubeflow.parakeet.AssignmentCreationActivity"
             android:label="@string/title_activity_assignment_creation"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName="co.cubeflow.parakeet.HomeActivity"
             android:theme="@style/Parakeet.NoActionBar" />
 
-        <service android:name=".auth.authenticator.ParakeetAuthenticatorService">
+        <service android:name="co.cubeflow.parakeet.auth.authenticator.ParakeetAuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -44,12 +44,12 @@
                 android:resource="@xml/authenticator" />
         </service>
 
-        <activity android:name=".auth.authenticator.AuthenticatorActivity" />
+        <activity android:name="co.cubeflow.parakeet.auth.authenticator.AuthenticatorActivity" />
 
         <activity
-            android:name=".ClassCreationActivity"
+            android:name="co.cubeflow.parakeet.ClassCreationActivity"
             android:label="@string/title_activity_create_class"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName="co.cubeflow.parakeet.HomeActivity"
             android:theme="@style/Parakeet.NoActionBar" />
 
     </application>

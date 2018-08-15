@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.thecraftkid.parakeet.AssignmentCreationActivity">
+    tools:context="com.thecraftkid.parakeet.co.thecraftkid.parakeet.AssignmentCreationActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.thecraftkid.parakeet.ui.AssignmentCreationFragment"
+        android:name="co.cubeflow.parakeet.ui.AssignmentCreationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

@@ -1,6 +1,0 @@
-project.ext {
-    sdkVersion = 27
-
-    supportLibraryVersion = '27.0.1'
-    playServicesVersion = '11.6.0'
-}
