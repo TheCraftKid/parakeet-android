@@ -1,21 +1,20 @@
 package co.cubeflow.parakeet.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.thecraftkid.parakeet.R;
-import co.cubeflow.parakeet.viewmodel.AssignmentViewModel;
-
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import co.cubeflow.parakeet.R;
 import co.cubeflow.parakeet.model.Assignment;
 import co.cubeflow.parakeet.util.IntentConstants;
+import co.cubeflow.parakeet.viewmodel.AssignmentViewModel;
 
 /**
  * A {@link Fragment} that displays {@link Assignment} data to the

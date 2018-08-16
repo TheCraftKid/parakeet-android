@@ -1,11 +1,7 @@
 package co.cubeflow.parakeet.ui;
 
 import android.app.DatePickerDialog;
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,14 +11,17 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.thecraftkid.parakeet.R;
-import co.cubeflow.parakeet.ui.viewmodel.AssignmentCreationViewModel;
-
 import org.joda.time.DateTime;
 
 import java.util.Calendar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import co.cubeflow.parakeet.R;
 import co.cubeflow.parakeet.model.Assignment;
+import co.cubeflow.parakeet.ui.viewmodel.AssignmentCreationViewModel;
 
 /**
  * A {@link Fragment} that provides options for creating a

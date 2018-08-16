@@ -1,7 +1,7 @@
 package co.cubeflow.parakeet.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import co.cubeflow.parakeet.livedata.AssignmentLiveData;
 import co.cubeflow.parakeet.model.Assignment;

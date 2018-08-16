@@ -1,8 +1,8 @@
 package co.cubeflow.parakeet.ui.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import co.cubeflow.parakeet.model.Classroom;
 

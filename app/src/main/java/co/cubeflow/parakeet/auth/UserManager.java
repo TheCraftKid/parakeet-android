@@ -1,20 +1,21 @@
 package co.cubeflow.parakeet.auth;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.thecraftkid.parakeet.BuildConfig;
-import com.thecraftkid.parakeet.R;
-import co.cubeflow.parakeet.util.IntentConstants;
 
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import co.cubeflow.parakeet.BuildConfig;
+import co.cubeflow.parakeet.R;
+import co.cubeflow.parakeet.util.IntentConstants;
 
 /**
  * @version 1.0.0

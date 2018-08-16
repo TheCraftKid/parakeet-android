@@ -2,15 +2,12 @@ package co.cubeflow.parakeet;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.thecraftkid.parakeet.R;
-
-import co.cubeflow.parakeet.ui.AssignmentDetailFragment;
-
+import androidx.appcompat.app.AppCompatActivity;
 import co.cubeflow.parakeet.model.Assignment;
+import co.cubeflow.parakeet.ui.AssignmentDetailFragment;
 import co.cubeflow.parakeet.util.IntentConstants;
 
 import static java.util.Objects.requireNonNull;

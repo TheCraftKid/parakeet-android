@@ -4,14 +4,15 @@ import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
-import com.thecraftkid.parakeet.R;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import co.cubeflow.parakeet.R;
 import co.cubeflow.parakeet.auth.UserManager;
 import co.cubeflow.parakeet.util.IntentConstants;
 
