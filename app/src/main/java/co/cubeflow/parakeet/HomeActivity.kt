@@ -71,7 +71,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         val authItem = menu!!.findItem(R.id.action_auth)
-        if (UserManager.getInstance().isSignedIn) {
+        if (UserManager.instance.isSignedIn) {
             authItem.title = getString(R.string.action_auth_sign_out)
             authItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         } else {
@@ -84,7 +84,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_auth -> {
-                val manager = UserManager.getInstance();
+                val manager = UserManager.instance;
                 if (manager.isSignedIn) {
                     manager.signOut(this)
                             .addOnSuccessListener(this, { recreate() })
@@ -133,7 +133,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 .commit()
     }
 
-    private fun getUserId(): String? = UserManager.getInstance().userId
+    private fun getUserId(): String? = UserManager.instance.userId
 
     private class HomeViewModel : ViewModel() {
 
