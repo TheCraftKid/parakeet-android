@@ -1,20 +1,16 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="Parakeet" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Parakeet" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorAccent</item>
     </style>
 
-    <style name="Parakeet.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+    <style name="Parakeet.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar" />
 
-    <style name="Parakeet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Parakeet.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
-    <style name="Parakeet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Parakeet.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
     <!-- Widget styles -->
     <style name="Parakeet.Widget">
