@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -26,25 +27,30 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.appcompat:appcompat:1.0.0-rc02"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
-    implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha05"
-    implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-alpha05"
+    implementation 'androidx.core:core-ktx:1.0.0-rc02'
     implementation "androidx.cardview:cardview:1.0.0-rc02"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation "androidx.palette:palette:1.0.0-rc02"
-    implementation 'androidx.core:core-ktx:1.0.0-rc02'
     implementation "androidx.browser:browser:1.0.0-rc02"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+
+    // Navigation version
+    implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
+
+    // Material Components
     implementation "com.google.android.material:material:1.0.0-rc02"
 
     // Dagger
-    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
-    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
-    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Google Services
     implementation "com.google.firebase:firebase-core:16.0.3"
@@ -55,6 +61,7 @@ dependencies {
     implementation "com.google.firebase:firebase-appindexing:16.0.1"
     implementation "com.google.firebase:firebase-config:16.0.0"
     implementation "com.google.firebase:firebase-invites:16.0.3"
+    implementation "com.crashlytics.sdk.android:crashlytics:2.9.5"
 
     implementation "com.firebaseui:firebase-ui-auth:4.1.0"
     implementation "com.firebaseui:firebase-ui-firestore:4.1.0"
