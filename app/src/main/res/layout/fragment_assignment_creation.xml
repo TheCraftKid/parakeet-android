@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.thecraftkid.parakeet.co.thecraftkid.parakeet.ui.AssignmentCreationFragment"
+    tools:showIn="@layout/activity_assignment_creation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/assignment_class_icon"
+            style="@style/Parakeet.Widget.IconLabel"
+            android:src="@drawable/ic_class_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/assignment_class_choice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/assignment_class_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/assignment_class_icon"
+            app:layout_constraintTop_toTopOf="@+id/assignment_class_icon" />
+
+        <ImageView
+            android:id="@+id/group_members_icon"
+            style="@style/Parakeet.Widget.IconLabel"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_group_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/due_date_icon" />
+
+        <TextView
+            android:id="@+id/group_members_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/input_hint_assignment_group_members"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/group_members_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/group_members_icon"
+            app:layout_constraintTop_toTopOf="@+id/group_members_icon" />
+
+        <ImageView
+            android:id="@+id/due_date_icon"
+            style="@style/Parakeet.Widget.IconLabel"
+            android:src="@drawable/ic_date_range_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assignment_class_icon" />
+
+        <TextView
+            android:id="@+id/assignment_due_date_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toBottomOf="@+id/due_date_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/due_date_icon"
+            app:layout_constraintTop_toTopOf="@+id/due_date_icon"
+            tools:text="Due on November 21, 2017" />
+
+        <ImageView
+            android:id="@+id/assignment_notes_icon"
+            style="@style/Parakeet.Widget.IconLabel"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_assignment_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assignment_points_icon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/assignment_notes_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/assignment_notes_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/assignment_notes_icon"
+            app:layout_constraintTop_toTopOf="@id/assignment_notes_icon"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/assignment_notes_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_hint_assignment_notes" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/assignment_points_icon"
+            style="@style/Parakeet.Widget.IconLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_assessment_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group_members_icon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/assignment_points_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/assignment_points_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/assignment_points_icon"
+            app:layout_constraintTop_toTopOf="@+id/assignment_points_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/assignment_points_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/input_hint_assignment_points"
+                android:inputType="number"
+                android:text="100" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
